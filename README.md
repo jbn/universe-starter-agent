@@ -42,7 +42,7 @@ Add the following to your `.bashrc` so that you'll have the correct environment 
 
 ## Atari Pong
 
-`python train.py --num-workers 2 --env-id PongDeterministic-v3 --log-dir /tmp/pong`
+`python train.py --num-workers 2 --env-id PongDeterministic-v4 --log-dir /tmp/pong`
 
 The command above will train an agent on Atari Pong using ALE simulator.
 It will see two workers that will be learning in parallel (`--num-workers` flag) and will output intermediate results into given directory.
@@ -59,13 +59,13 @@ To switch to window number 0, type: `ctrl-b 0`. Look up tmux documentation for m
 
 To access TensorBoard to see various monitoring metrics of the agent, open [http://localhost:12345/](http://localhost:12345/) in a browser.
 
-Using 16 workers, the agent should be able to solve `PongDeterministic-v3` (not VNC) within 30 minutes (often less) on an `m4.10xlarge` instance.
+Using 16 workers, the agent should be able to solve `PongDeterministic-v4` (not VNC) within 30 minutes (often less) on an `m4.10xlarge` instance.
 Using 32 workers, the agent is able to solve the same environment in 10 minutes on an `m4.16xlarge` instance.
 If you run this experiment on a high-end MacBook Pro, the above job will take just under 2 hours to solve Pong.
 
 Add '--visualise' toggle if you want to visualise the worker using env.render() as follows:
 
-`python train.py --num-workers 2 --env-id PongDeterministic-v3 --log-dir /tmp/pong --visualise`
+`python train.py --num-workers 2 --env-id PongDeterministic-v4 --log-dir /tmp/pong --visualise`
 
 ![pong](https://github.com/openai/universe-starter-agent/raw/master/imgs/tb_pong.png "Pong")
 
@@ -87,7 +87,7 @@ Note that the default behavior of `train.py` is to start the remotes on a local 
 
 ### VNC Pong
 
-`python train.py --num-workers 2 --env-id gym-core.PongDeterministic-v3 --log-dir /tmp/vncpong`
+`python train.py --num-workers 2 --env-id gym-core.PongDeterministic-v4 --log-dir /tmp/vncpong`
 
 _Peeking into the agent's environment with TurboVNC_
 
@@ -122,7 +122,7 @@ environment with the `Logger` wrapper, as done in
 Generally speaking, environments that are most affected by lag are
 games that place a lot of emphasis on reaction time.  For example,
 this agent is able to solve VNC Pong
-(`gym-core.PongDeterministic-v3`) in under 2 hours when both the agent
+(`gym-core.PongDeterministic-v4`) in under 2 hours when both the agent
 and the environment are co-located on the cloud, but this agent had
 difficulty solving VNC Pong when the environment was on the cloud
 while the agent was not.  This issue affects environments that place
